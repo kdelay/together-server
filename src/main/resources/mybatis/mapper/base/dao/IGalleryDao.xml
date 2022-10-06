@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.base.dao.IGalleryDao">
+	<select id="listDao"
+		resultType="com.example.demo.base.vo.GalleryVo">
+		select * from gallery order by upload_time asc
+	</select>
+	
+	<insert id="writeDao" parameterType="java.util.HashMap">
+		insert into gallery (file_unique_name, file_title, file_content, upload_folder, upload_time)
+		values (#{fileUniqueName}, #{fileTitle}, #{fileContent}, #{uploadFolder}, #{uploadTime})
+	</insert>
+	
+	<delete id="delete" parameterType="java.util.HashMap">
+		delete from gallery where file_unique_name=#{fileUniqueName}
+	</delete>
+</mapper>

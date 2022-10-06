@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.base.dao.IMissionDao">
+	<select id="listDao"
+		resultType="com.example.demo.base.vo.MissionVo">
+		select * from mission order by _id asc
+	</select>
+	
+	<insert id="writeDao" parameterType="java.util.HashMap">
+		insert into mission (mi_title, mi_member)
+		values (#{miTitle}, #{miMember})
+	</insert>
+	
+	<delete id="delete" parameterType="java.util.HashMap">
+		delete from mission where _id=#{Id}
+	</delete>
+</mapper>
